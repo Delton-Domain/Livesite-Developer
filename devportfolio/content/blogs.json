@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Migrating BizTalk orchestration logic to Azure Data Factory",
+    "summary": "How I approached translating orchestration patterns into ADF pipelines and custom activities.",
+    "tag": "Case study",
+    "url": "https://your-blog-link-here"
+  },
+  {
+    "title": "Designing a Blob-first metadata system for a React app",
+    "summary": "Storing images + metadata in Blob Storage with clean JSON contracts.",
+    "tag": "Guide",
+    "url": "https://your-blog-link-here"
+  },
+    {
+    "title": "Designing a Blob-first metadata system for a React app",
+    "summary": "Storing images + metadata in Blob Storage with clean JSON contracts.",
+    "tag": "Guide",
+    "url": "https://your-blog-link-here"
+  },
+    {
+    "title": "Designing a Blob-first metadata system for a React app",
+    "summary": "Storing images + metadata in Blob Storage with clean JSON contracts.",
+    "tag": "Guide",
+    "url": "https://your-blog-link-here"
+  },
+    {
+    "title": "Migrating BizTalk orchestration logic to Azure Data Factory",
+    "summary": "How I approached translating orchestration patterns into ADF pipelines and custom activities.",
+    "tag": "Case study",
+    "url": "https://your-blog-link-here"
+  },
+  {
+    "title": "Designing a Blob-first metadata system for a React app",
+    "summary": "Storing images + metadata in Blob Storage with clean JSON contracts.",
+    "tag": "Guide",
+    "url": "https://your-blog-link-here"
+  },
+    {
+    "title": "Designing a Blob-first metadata system for a React app",
+    "summary": "Storing images + metadata in Blob Storage with clean JSON contracts.",
+    "tag": "Guide",
+    "url": "https://your-blog-link-here"
+  },
+    {
+    "title": "Designing a Blob-first metadata system for a React app",
+    "summary": "Storing images + metadata in Blob Storage with clean JSON contracts.",
+    "tag": "Guide",
+    "url": "https://your-blog-link-here"
+  }
+]

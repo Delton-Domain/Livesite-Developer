@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delton Fernandes | Projects & Guides</title>
+    <meta name="description" content="Azure + .NET developer. Curated projects, guides, and case studies." />
+
+    <style>
+      :root{
+        --bg:#0b0d12; --panel:#101522; --text:#e8ecf3; --muted:#9aa6bd;
+        --line:#1f2a3f; --accent:#7dd3fc; --accent2:#a78bfa;
+        --shadow: 0 10px 30px rgba(0,0,0,.35);
+        --radius: 18px;
+        --max: 980px;
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        background: radial-gradient(900px 500px at 15% -10%, rgba(167,139,250,.20), transparent),
+                    radial-gradient(900px 500px at 85% 0%, rgba(125,211,252,.18), transparent),
+                    var(--bg);
+        color:var(--text);
+      }
+      a{color:inherit}
+      .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
+      .nav{
+        position:sticky; top:0; z-index:50;
+        backdrop-filter: blur(10px);
+        background: rgba(11,13,18,.65);
+        border-bottom:1px solid rgba(31,42,63,.6);
+      }
+      .nav-inner{
+        max-width:var(--max); margin:0 auto; padding:12px 18px;
+        display:flex; align-items:center; justify-content:space-between; gap:14px;
+      }
+      .brand{display:flex; gap:10px; align-items:center; text-decoration:none}
+      .dot{
+        width:10px; height:10px; border-radius:999px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        box-shadow: 0 0 0 4px rgba(125,211,252,.12);
+      }
+      .links{display:flex; gap:12px; flex-wrap:wrap}
+      .links a{
+        text-decoration:none; color:var(--muted);
+        padding:8px 10px; border-radius:12px;
+        border:1px solid transparent;
+      }
+      .links a:hover{color:var(--text); border-color:rgba(31,42,63,.9); background:rgba(16,21,34,.7)}
+      h1,h2{margin:0 0 10px}
+      h1{font-size:40px; letter-spacing:-.02em}
+      h2{font-size:22px; color:var(--text)}
+      p{margin:0 0 12px; color:var(--muted); line-height:1.6}
+      .hero{padding:44px 0 18px}
+      .card{
+        background: linear-gradient(180deg, rgba(16,21,34,.9), rgba(16,21,34,.75));
+        border:1px solid rgba(31,42,63,.9);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+      .hero-card{padding:22px}
+      .row{display:flex; gap:14px; flex-wrap:wrap; margin-top:14px}
+      .btn{
+        display:inline-flex; align-items:center; justify-content:center;
+        gap:8px; padding:10px 14px; border-radius:14px;
+        text-decoration:none; border:1px solid rgba(31,42,63,.95);
+        background: rgba(16,21,34,.7);
+        color: var(--text);
+      }
+      .btn:hover{border-color:rgba(125,211,252,.5)}
+      .btn.primary{
+        border-color:rgba(125,211,252,.35);
+        background: linear-gradient(135deg, rgba(125,211,252,.18), rgba(167,139,250,.14));
+      }
+      .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:14px}
+      .col-8{grid-column: span 8}
+      .col-4{grid-column: span 4}
+      @media (max-width: 860px){
+        .col-8,.col-4{grid-column: span 12}
+        h1{font-size:34px}
+      }
+      .stack{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+      .pill{
+        font-size:13px; color:var(--text);
+        padding:6px 10px; border-radius:999px;
+        border:1px solid rgba(31,42,63,.9);
+        background: rgba(11,13,18,.35);
+      }
+      section{padding:34px 0 0}
+      .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:12px; margin-bottom:12px}
+      .hint{font-size:13px; color:rgba(154,166,189,.9)}
+      .list{display:grid; grid-template-columns: repeat(12, 1fr); gap:14px}
+      .item{grid-column: span 6; padding:16px}
+      @media (max-width: 720px){ .item{grid-column: span 12} }
+      .item h3{margin:0 0 6px; font-size:18px}
+      .item p{margin:0 0 10px}
+      .meta{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
+      .meta a{color:var(--muted); text-decoration:none}
+      .meta a:hover{color:var(--text)}
+      .divider{height:1px; background: rgba(31,42,63,.9); margin:18px 0 0}
+      .status{font-size:13px; color:rgba(154,166,189,.95)}
+      .footer{margin-top:44px; padding-top:18px; border-top:1px solid rgba(31,42,63,.9); color:var(--muted); font-size:13px}
+      .kbd{
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size:12px; padding:2px 8px; border-radius:8px;
+        border:1px solid rgba(31,42,63,.9); background: rgba(11,13,18,.3); color:var(--text);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="#home" aria-label="Home">
+          <span class="dot"></span>
+          <strong>Delton Fernandes</strong>
+        </a>
+        <div class="links">
+          <a href="#projects">Projects</a>
+          <a href="#blogs">Blogs</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+    </div>
+
+    <main class="wrap">
+      <!-- HOME -->
+      <section id="home" class="hero">
+        <div class="grid">
+          <div class="col-8">
+            <h1>Azure + .NET developer building cloud-first systems.</h1>
+            <p>
+              Curated projects and guides focused on integration, data pipelines, and pragmatic engineering.
+            </p>
+            <div class="row">
+              <a class="btn primary" href="#projects">View Projects</a>
+              <a class="btn" href="#blogs">Read Blogs</a>
+              <a class="btn" id="githubLink" href="#" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="btn" id="linkedinLink" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="btn" id="cvLink" href="#" target="_blank" rel="noreferrer">CV</a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div style="margin-top:16px">
+              <div class="hint">Tech snapshot</div>
+              <div class="stack" id="stackPills"></div>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="card hero-card">
+              <h2>Now</h2>
+              <p>
+                Building portfolio-grade case studies and sharpening Azure Data Factory expertise.
+              </p>
+              <p class="status">
+                Tip: press <span class="kbd">/</span> to jump to Projects (tiny shortcut).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-head">
+          <div>
+            <h2>Projects</h2>
+            <p>GitHub-powered, manually curated. Only the good stuff makes it in.</p>
+          </div>
+          <div class="status" id="projectsStatus">Loading projects…</div>
+        </div>
+
+        <div class="list" id="projectsList"></div>
+      </section>
+
+      <!-- BLOGS -->
+      <section id="blogs">
+        <div class="section-head">
+          <div>
+            <h2>Blogs / Guides</h2>
+            <p>Mini case studies. Decisions, trade-offs, outcomes.</p>
+          </div>
+          <div class="status" id="blogsStatus">Loading posts…</div>
+        </div>
+
+        <div class="list" id="blogsList"></div>
+        <p class="status" style="margin-top:12px">
+          Right now this reads from a JSON file. Later you can swap it to Notion without changing the UI.
+        </p>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-head">
+          <div>
+            <h2>About / Contact</h2>
+            <p>Short bio and links. No spammy forms.</p>
+          </div>
+        </div>
+
+        <div class="card" style="padding:16px">
+          <p>
+            I’m an Azure Integration Developer working with .NET/C#, cloud data pipelines, and modern frontends.
+            I like untangling legacy systems and rebuilding them cleanly in the cloud.
+          </p>
+
+          <div class="row">
+            <a class="btn" id="githubLink2" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn" id="linkedinLink2" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" id="cvLink2" href="#" target="_blank" rel="noreferrer">CV</a>
+            <a class="btn" id="emailLink" href="#">Email</a>
+          </div>
+        </div>
+
+        <div class="footer">
+          Built as a single <span class="kbd">index.html</span>. Fast, simple, expandable.
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // --------------------
+      // CONFIG (edit these)
+      // --------------------
+      const CONFIG = {
+        name: "Delton Fernandes",
+        githubUser: "YOUR_GITHUB_USERNAME",
+        githubProfileUrl: "https://github.com/YOUR_GITHUB_USERNAME",
+        linkedinUrl: "https://www.linkedin.com/in/YOUR_LINKEDIN/",
+        cvUrl: "assets/Delton-Fernandes-CV.pdf", // put your PDF there
+        email: "you@example.com",
+
+        // Only these repos will appear (curated list)
+        curatedRepos: [
+          // "repo-name-1",
+          // "repo-name-2",
+          // "repo-name-3"
+        ],
+
+        techStack: ["Azure", "ADF", ".NET / C#", "React + Vite", "Azure Blob Storage", "MSAL", "Integration", "Data Pipelines"],
+
+        // Blog source (simple JSON file). Later you can replace fetchBlogs() to pull from Notion.
+        blogsJsonUrl: "content/blogs.json"
+      };
+
+      // --------------------
+      // INIT LINKS + STACK
+      // --------------------
+      function setLinks() {
+        const map = [
+          ["githubLink", CONFIG.githubProfileUrl],
+          ["githubLink2", CONFIG.githubProfileUrl],
+          ["linkedinLink", CONFIG.linkedinUrl],
+          ["linkedinLink2", CONFIG.linkedinUrl],
+          ["cvLink", CONFIG.cvUrl],
+          ["cvLink2", CONFIG.cvUrl],
+          ["emailLink", `mailto:${CONFIG.email}`]
+        ];
+
+        map.forEach(([id, url]) => {
+          const el = document.getElementById(id);
+          if (el) el.href = url;
+        });
+
+        const stack = document.getElementById("stackPills");
+        CONFIG.techStack.forEach(t => {
+          const span = document.createElement("span");
+          span.className = "pill";
+          span.textContent = t;
+          stack.appendChild(span);
+        });
+      }
+
+      // --------------------
+      // PROJECTS (GitHub)
+      // --------------------
+      async function fetchProjects() {
+        const status = document.getElementById("projectsStatus");
+        const list = document.getElementById("projectsList");
+
+        if (!CONFIG.githubUser || CONFIG.githubUser.includes("YOUR_GITHUB_USERNAME")) {
+          status.textContent = "Set your GitHub username in CONFIG.";
+          return;
+        }
+
+        try {
+          const res = await fetch(`https://api.github.com/users/${CONFIG.githubUser}/repos?per_page=100&sort=updated`);
+          if (!res.ok) throw new Error("GitHub fetch failed");
+          const repos = await res.json();
+
+          const curated = new Set(CONFIG.curatedRepos);
+          const chosen = repos
+            .filter(r => curated.size ? curated.has(r.name) : !r.fork)
+            .slice(0, curated.size ? 50 : 6); // if no curated list yet, show top 6 non-forks
+
+          if (!chosen.length) {
+            status.textContent = "No curated repos found. Add repo names in CONFIG.curatedRepos.";
+            return;
+          }
+
+          list.innerHTML = "";
+          chosen.forEach(repo => list.appendChild(projectCard(repo)));
+          status.textContent = `${chosen.length} project${chosen.length === 1 ? "" : "s"}`;
+        } catch (e) {
+          status.textContent = "Couldn’t load GitHub projects (rate limit or network).";
+        }
+      }
+
+      function projectCard(repo) {
+        const div = document.createElement("div");
+        div.className = "card item";
+
+        const title = document.createElement("h3");
+        title.textContent = repo.name;
+
+        const desc = document.createElement("p");
+        desc.textContent = repo.description || "No description yet. Add one on GitHub to make this shine.";
+
+        const meta = document.createElement("div");
+        meta.className = "meta";
+
+        const aRepo = document.createElement("a");
+        aRepo.href = repo.html_url;
+        aRepo.target = "_blank";
+        aRepo.rel = "noreferrer";
+        aRepo.textContent = "GitHub ↗";
+
+        const aDemo = document.createElement("a");
+        aDemo.href = repo.homepage || repo.html_url;
+        aDemo.target = "_blank";
+        aDemo.rel = "noreferrer";
+        aDemo.textContent = repo.homepage ? "Live demo ↗" : "";
+
+        const lang = document.createElement("span");
+        lang.className = "pill";
+        lang.textContent = repo.language || "Project";
+
+        meta.appendChild(lang);
+        meta.appendChild(aRepo);
+        if (repo.homepage) meta.appendChild(aDemo);
+
+        div.appendChild(title);
+        div.appendChild(desc);
+        div.appendChild(meta);
+        return div;
+      }
+
+      // --------------------
+      // BLOGS (JSON now, Notion later)
+      // --------------------
+      async function fetchBlogs() {
+        const status = document.getElementById("blogsStatus");
+        const list = document.getElementById("blogsList");
+
+        try {
+          const res = await fetch(CONFIG.blogsJsonUrl, { cache: "no-store" });
+          if (!res.ok) throw new Error("blogs.json missing");
+          const posts = await res.json();
+
+          if (!Array.isArray(posts) || posts.length === 0) {
+            status.textContent = "No blog posts yet.";
+            return;
+          }
+
+          list.innerHTML = "";
+          posts.slice(0, 12).forEach(p => list.appendChild(blogCard(p)));
+          status.textContent = `${posts.length} post${posts.length === 1 ? "" : "s"}`;
+        } catch (e) {
+          status.textContent = "Add content/blogs.json to load posts.";
+        }
+      }
+
+      function blogCard(post) {
+        const div = document.createElement("div");
+        div.className = "card item";
+
+        const title = document.createElement("h3");
+        title.textContent = post.title || "Untitled";
+
+        const desc = document.createElement("p");
+        desc.textContent = post.summary || "Add a short summary for this post.";
+
+        const meta = document.createElement("div");
+        meta.className = "meta";
+
+        const tag = document.createElement("span");
+        tag.className = "pill";
+        tag.textContent = post.tag || "Guide";
+
+        const link = document.createElement("a");
+        link.href = post.url || "#";
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        link.textContent = post.url ? "Read ↗" : "Add a URL";
+
+        meta.appendChild(tag);
+        meta.appendChild(link);
+
+        div.appendChild(title);
+        div.appendChild(desc);
+        div.appendChild(meta);
+        return div;
+      }
+
+      // --------------------
+      // KEYBOARD SHORTCUTS
+      // --------------------
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "/") {
+          e.preventDefault();
+          document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+        }
+      });
+
+      // Boot
+      setLinks();
+      fetchProjects();
+      fetchBlogs();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+[
+  {
+    "title": "Migrating BizTalk orchestration logic to Azure Data Factory",
+    "summary": "How I approached translating orchestration patterns into ADF pipelines and custom activities.",
+    "tag": "Case study",
+    "url": "https://your-blog-link-here"
+  }
+]
